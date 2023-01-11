@@ -6,15 +6,7 @@ export default function Search(){
     
     const [isAtTop, setIsAtTop] = useState(false)
 
-    const handleCloseOpenSearch=()=>{
-        setIsAtTop(!isAtTop)
-    }
-    /*const handleSearchClick=() => {
-        setIsAtTop(!isAtTop)
-    }
-    const handleCloseClick=() => {
-        setIsAtTop(!isAtTop)
-    }*/
+    const handleCloseOpenSearch=()=>setIsAtTop(!isAtTop)
 
     return(
         <div className={`search ${isAtTop ? "search--top":"search--center"}`}>
