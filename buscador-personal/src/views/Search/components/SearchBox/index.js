@@ -7,14 +7,17 @@ export default function SearchBox(){
     return(
         <div className="search-box">
             <h2 className="search-box-title">Buscador de personal</h2>
-            <label>
-                <input
-                value = {searchText}
-                onChange = {({target:{value}}) => setSearchText(value)}
-                className="search-box-input"
-                />
-            </label>
-            <button>Buscar</button>
+            <div className="search-box-buttons">
+                <label>
+                    <input
+                    value = {searchText}
+                    onChange = {({target:{value}}) => setSearchText(value)}
+                    className="search-box-input"
+                    />
+                </label>
+                <button onClick={()=>{}}>Buscar</button>
+                <button onClick={()=>{}}>Cerrar</button>
+            </div>
         </div>
     )
 }
