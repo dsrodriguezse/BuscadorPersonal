@@ -3,6 +3,7 @@ import SearchBox from "./components/SearchBox";
 
 import data from "../../data/users.json"
 import "./style.css"
+import SearchResults from "./components/SearchResults";
 
 export default function Search(){
     
@@ -16,6 +17,7 @@ export default function Search(){
 
     const handleSearchClick = (searchText) => {
         if(data?.length){
+            //setIsAtTop(true)
             const searchTextMminus = searchText.toLowerCase()
             const filterData = data.filter((value)=>(
                     value.name.toLowerCase().includes(searchTextMminus)||
@@ -32,6 +34,7 @@ export default function Search(){
     return(
         <div className={`search ${isAtTop ? "search--top":"search--center"}`}>
             <SearchBox onSearch={handleSearchClick} onClose={handleCloseSearch}/>
+            <SearchResults results={results}></SearchResults>
         </div>
     )
 }
