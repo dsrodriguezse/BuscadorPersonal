@@ -1,5 +1,4 @@
 .search{
-    height: 100vh;
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -7,6 +6,7 @@
 .search--center{
     justify-content: center;
     align-items: center;
+    height: 100vh;
 }
 .search--top{
     justify-content: center;
