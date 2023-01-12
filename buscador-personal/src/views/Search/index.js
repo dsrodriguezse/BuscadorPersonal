@@ -7,27 +7,31 @@ import "./style.css"
 export default function Search(){
     
     const [isAtTop, setIsAtTop] = useState(false)
-    const [userData, setUserData] = useState(data)
+    const [results, setResults] = useState([])
 
-    const handleCloseOpenSearch=()=>setIsAtTop(!isAtTop)
+    const handleCloseSearch=()=>{
+        setIsAtTop(false)
+        setResults([])
+    }
+
     const handleSearchClick = (searchText) => {
-        if(userData?.length){
-            const filterData = userData.filter((value)=>{
-                return (
-                    value.name.includes(searchText)||
-                    value.phone.includes(searchText)||
-                    value.email.includes(searchText)||
-                    value.username.includes(searchText)
+        if(data?.length){
+            const searchTextMminus = searchText.toLowerCase()
+            const filterData = data.filter((value)=>(
+                    value.name.toLowerCase().includes(searchTextMminus)||
+                    value.phone.toLowerCase().includes(searchTextMminus)||
+                    value.email.toLowerCase().includes(searchTextMminus)||
+                    value.username.toLowerCase().includes(searchTextMminus)
                 )
-            })
-            console.log(filterData)
+            )
+            setResults(filterData)
         }
     }
 
-    console.log(userData)
+    console.log(results)
     return(
         <div className={`search ${isAtTop ? "search--top":"search--center"}`}>
-            <SearchBox onSearch={handleSearchClick} onClose={handleCloseOpenSearch}/>
+            <SearchBox onSearch={handleSearchClick} onClose={handleCloseSearch}/>
         </div>
     )
 }
