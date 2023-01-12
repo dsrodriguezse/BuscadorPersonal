@@ -1,4 +1,4 @@
-export default function SearchResultsItem({name, email}){
+export default function SearchResultsItem({name, username, email}){
     return(
         <div style={{
             backgroundColor : "#E8E7E7",
@@ -7,7 +7,7 @@ export default function SearchResultsItem({name, email}){
             padding:10,
             width:"100%"
         }}>
-            <p>{name}</p>
+            <p>{name} {" -->"} ({username})</p>
             <p>{email}</p>
         </div>
     )
